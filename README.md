@@ -11,6 +11,14 @@
 6. Size/gender
 7. Creator
 
+//user properties
+1. Full Name
+2. Email
+3. Password
+4. Address
+5. Gender
+6. Birthday
+7. Cart Items
 
 //database
 1. Making a database for every item
