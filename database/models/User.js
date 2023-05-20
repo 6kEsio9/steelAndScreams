@@ -21,14 +21,18 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    birthday: {
-        type: Date,
+    dateOfBirth: {
+        type: String,
         required: true
     },
     cartItems: [{
         type: mongoose.Types.ObjectId,
         ref: 'Item'
-    }]
+    }],
+    admin: {
+        type: Boolean,
+        required: true
+    }
 });
 
 const User = mongoose.model('User', userSchema);
