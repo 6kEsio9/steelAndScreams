@@ -16,18 +16,102 @@
     <!-- Add your merchandise content here -->
   </div>
   
-  <div class="login-form">
-    <h2>Login</h2>
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 100px;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+    
+    input[type="radio"] {
+      margin: 4px 8px 4px 0;
+    }
+    
+    label {
+      margin-bottom: 6px;
+      display: block;
+    }
+    
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4caf50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-form">
+    <h2>Register Form</h2>
     <form>
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Your username...">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" placeholder="Your full name..." required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email..." required>
       
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Your password...">
+      <input type="password" id="password" name="password" placeholder="Your password..." required>
       
-      <input type="submit" value="Login">
+      <label for="address">Address</label>
+      <textarea id="address" name="address" placeholder="Your address..." required></textarea>
+      
+      <label for="gender">Gender</label>
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female" required>
+      <label for="female">Female</label>
+      
+      <label for="birthdate">Date of Birth</label>
+      <input type="date" id="birthdate" name="birthdate" required>
+      
+      <input type="submit" value="Register">
     </form>
   </div>
+</body>
+</html>
+
 
   <footer>
     <p>&copy; 2023 Steel And Screams. All rights reserved.</p>

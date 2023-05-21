@@ -5,19 +5,22 @@ import { Header } from './components/Common/Header';
 
 import { Login } from './components/Auth/Login';
 
+import { Route, Routes } from 'react-router-dom';
+import { Home } from './components/Home/Home';
+import { Register } from './components/Auth/Register';
+
 function App() {
   return (
     <>
       <Header />
-
-      {/* <div class="container">
-        <h2>Welcome to Steel And Screams!</h2>
-        <p>Explore our collection of heavy metal t-shirts, albums, accessories, and more.</p>
-
-        <!-- Add your merchandise content here -->
-      </div> */}
-
-      <Login />
+      <div class="container">
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/users/login' element={<Login />}/>
+          <Route path='/users/register' element={<Register />} />
+          {/* <Login /> */}
+        </Routes>
+      </div>
 
       <Footer />
     </>
