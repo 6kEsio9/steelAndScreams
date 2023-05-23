@@ -50,6 +50,8 @@ exports.loginUser = async (req, res) => {
 exports.registerUser = async (req, res) => {
     const data = req.body;
 
+    console.log(data);
+
     try{
         let { token, createdUser } = await userService.register(data);
         res.cookie('user', token, { httpOnly: true });

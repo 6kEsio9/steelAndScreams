@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     dateOfBirth: {
-        type: String,
+        type: Date,
         required: true
     },
     cartItems: [{
