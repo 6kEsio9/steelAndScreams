@@ -1,5 +1,18 @@
+import { Item } from './Item';
+
+import { Link } from 'react-router-dom';
+
+import useItems from '../../hooks/useItems';
+
 export const Catalogue = () => {
+
+    const [ items, setItems ] = useItems();
+
+    console.log(items);
+
     return (
-        <h2>Catalogue Page.</h2>
+        <div className="catalogue">
+            {items ? items.map(x => <Item key={x._id} item={x}></Item>) : <h2>Noting available in stock.</h2>}
+        </div>
     );
 };

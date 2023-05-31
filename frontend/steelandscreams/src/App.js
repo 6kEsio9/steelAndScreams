@@ -10,22 +10,25 @@ import { Home } from './components/Home/Home';
 import { Register } from './components/Auth/Register';
 import { AuthProvider } from './contexts/AuthContext';
 import { Catalogue } from './components/Catalogue/Catalogue';
+import { ItemProvider } from './contexts/ItemContext';
 
 function App() {
   return (
     <>
       <AuthProvider>
-        <Header />
-        <div class="container">
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/users/login' element={<Login />} />
-            <Route path='/users/register' element={<Register />} />
-            <Route path='/catalogue' element={<Catalogue />} />
-          </Routes>
-        </div>
+        <ItemProvider>
+          <Header />
+          <div class="container">
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/users/login' element={<Login />} />
+              <Route path='/users/register' element={<Register />} />
+              <Route path='/catalogue' element={<Catalogue />} />
+            </Routes>
+          </div>
 
-        <Footer />
+          <Footer />
+        </ItemProvider>
       </AuthProvider>
     </>
   );
