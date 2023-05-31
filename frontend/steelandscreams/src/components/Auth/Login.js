@@ -23,7 +23,7 @@ export const Login = () => {
                     return null;
                 }
                 onLogin(res);
-                navigate('/');
+                navigate('/catalogue');
             })
             .catch(err => console.error(err));
     };

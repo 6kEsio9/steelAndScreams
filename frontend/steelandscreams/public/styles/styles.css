@@ -92,15 +92,15 @@ input[type="submit"]:hover {
     margin-left: 25px;
 }
 
-.catalogue{
+.catalogueLink{
     margin-right: 25px;
 }
 
-.cart{
+.cartLink{
     margin-left: 25px;
     margin-right: 25px;
 }
 
-.logout{
+.logoutLink{
     margin-left:25px;
 }

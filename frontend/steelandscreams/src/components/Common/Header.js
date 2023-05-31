@@ -20,9 +20,9 @@ export const Header = () => {
                         <Link to={"/users/register"} className='registerLink'>Register</Link>
                     </div>
                     : <div className='loggedNav'>
-                        <Link to={"/catalogue"} className='catalogue'>Catalogue</Link>
-                        <a className='cart'>Cart</a>
-                        <a className='logout' onClick={onLogout}>Logout</a>
+                        <Link to={"/catalogue"} className='catalogueLink'>Catalogue</Link>
+                        <a className='cartLink'>Cart</a>
+                        <a className='logoutLink' onClick={onLogout}>Logout</a>
                     </div>}
             </nav>
         </header>
