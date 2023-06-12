@@ -11,6 +11,7 @@ import { Register } from './components/Auth/Register';
 import { AuthProvider } from './contexts/AuthContext';
 import { Catalogue } from './components/Catalogue/Catalogue';
 import { ItemProvider } from './contexts/ItemContext';
+import { CreateItem } from './components/Item/CreateItem';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <Route path='/users/login' element={<Login />} />
               <Route path='/users/register' element={<Register />} />
               <Route path='/catalogue' element={<Catalogue />} />
+              <Route path='/item/create' element={<CreateItem />} />
             </Routes>
           </div>
 

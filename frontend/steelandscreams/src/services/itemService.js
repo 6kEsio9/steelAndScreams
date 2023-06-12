@@ -9,3 +9,16 @@ exports.getOne = (itemId) => {
     return fetch(`${url}/${itemId}`)
         .then(res => res.json())
 };
+
+//only for admin users
+exports.create = (data, authToken) => {
+    return fetch(`${url}/create`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+            "X-Authorization": authToken
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+}

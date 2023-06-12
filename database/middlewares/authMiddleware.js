@@ -7,7 +7,7 @@ const jwtVerify = promisify(jwt.verify);
 
 exports.auth = async (req, res, next) => {
 
-    let token = req.cookies.user;
+    let token = req.headers['x-authorization'];
 
     if (token) {
         try {
@@ -24,7 +24,7 @@ exports.auth = async (req, res, next) => {
 };
 
 exports.isAuth = (req, res, next) => {
-    const user = req.user;
+    const user = req.headers['x-authorization'];
 
     if (!user) {
         return res.redirect('/404');
