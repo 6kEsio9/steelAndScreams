@@ -14,7 +14,7 @@ export const CreateItem = () => {
         const formData = Object.fromEntries(new FormData(e.target));
         try{
             await itemService.create(formData, auth.token);
-            nav('/catalogue')
+            nav('/catalogue');
         }catch(err){
             console.error(err);
         }
