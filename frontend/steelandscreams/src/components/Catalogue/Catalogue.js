@@ -8,8 +8,6 @@ export const Catalogue = () => {
 
     const [ items, setItems ] = useItems();
 
-    console.log(items);
-
     return (
         <div className="catalogue">
             {items ? items.map(x => <Item key={x._id} item={x}></Item>) : <h2>Noting available in stock.</h2>}

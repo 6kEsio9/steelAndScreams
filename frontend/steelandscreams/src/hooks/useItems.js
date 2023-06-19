@@ -2,14 +2,20 @@ import { useState, useEffect } from 'react';
 
 import * as itemService from '../services/itemService';
 
-const useItems = () => {
+const useItems = (arg) => {
     const [state, setState] = useState([]);
 
     useEffect(() => {
-        itemService.getAll()
-            .then(res => setState(res))
-            .catch(err => console.error(err))
-    }, [])
+        if (arg == null) {
+            itemService.getAll()
+                .then(res => setState(res))
+                .catch(err => console.error(err))
+        } else {
+            itemService.getOne(arg)
+                .then(res => setState(res))
+                .catch(err => console.error(err))
+        }
+    }, [arg])
 
     const setItem = (data) => {
         setState(data);
