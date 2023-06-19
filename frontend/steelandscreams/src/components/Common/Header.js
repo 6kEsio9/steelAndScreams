@@ -25,7 +25,7 @@ export const Header = () => {
                     </div>
                     : <div className='loggedNav'>
                         <Link to={"/catalogue"} className='catalogueLink'>Catalogue</Link>
-                        <a className='cartLink'>Cart</a>
+                        <Link to={"/cart"} className='cartLink'>Cart</Link>
                         <a className='logoutLink' onClick={onLogout}>Logout</a>
                     </div>}
             </nav>

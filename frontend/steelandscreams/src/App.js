@@ -13,6 +13,7 @@ import { Catalogue } from './components/Catalogue/Catalogue';
 import { ItemProvider } from './contexts/ItemContext';
 import { CreateItem } from './components/Item/CreateItem';
 import { Item } from './components/Item/Item';
+import { Cart } from './components/Cart/Cart';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path='/catalogue' element={<Catalogue />} />
               <Route path='/item/create' element={<CreateItem />} />
               <Route path='/item/details/:id' element={<Item />} />
+              <Route path='/cart' element={<Cart />} />
             </Routes>
           </div>
 

@@ -36,7 +36,7 @@ export const Item = () => {
             </div>
             <div class="v1_22">
                 <span class="v1_24">
-                    {(item ? `${item.price}$` : "")}
+                    {(item ? `$${item.price}` : "")}
                 </span>
             </div>
             <div class="v1_27">

@@ -10,7 +10,7 @@ export const Item = (props) => {
                 <img className="itemImg" src={props.item.image}></img>
             </Link>
             <h4 className="itemName">{props.item.name}</h4>
-            <p className="itemPrice">{props.item.price}$</p>
+            <p className="itemPrice">${props.item.price}</p>
         </div>
     );
 };  
