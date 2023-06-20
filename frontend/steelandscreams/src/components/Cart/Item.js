@@ -1,13 +1,15 @@
-export const Item = () => {
+export const Item = (props) => {
+
+    console.log(props.item)
 
     return (
         <div className="Cart-Items">
             <div className="image-box">
-                <img src="images/apple.png" style={{ height: "120px" }} />
+                <img src={props.item.image} style={{ height: "120px" }} />
             </div>
             <div className="about">
-                <h1 className="title">Apple Juice</h1>
-                <h3 className="subtitle">250ml</h3>
+                <h1 className="title">{props.item.name}</h1>
+                <h3 className="subtitle">{props.item.creator}</h3>
             </div>
             <div className="counter">
                 <div className="btn">+</div>

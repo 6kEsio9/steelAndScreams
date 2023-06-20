@@ -5,19 +5,31 @@ import { Item } from './Item';
 import useAuth from "../../hooks/useAuth";
 import useItems from "../../hooks/useItems";
 
+import itemService from '../../services/itemService';
+
 import { useState, useEffect } from 'react';
 
 export const Cart = () => {
 
     const { auth } = useAuth();
 
+    const [cartItems, setCartItems] = useState([]);
+
     const [userItems, setUserItems] = useState([]);
 
     useEffect(() => {
-        setUserItems(auth.cartItems)
-    }, [userItems])
+        setUserItems(auth.cartItems);
+    }, [userItems]);
 
-    console.log(userItems);
+    useEffect(() => {
+        userItems.map(x => {
+            itemService.getOne(x)
+                .then(res => setCartItems((state) => [...state, res]))
+                .catch(err => console.error(err));
+        });
+    }, [userItems]);
+
+    console.log(cartItems);
 
     return (
         <main>
@@ -27,18 +39,18 @@ export const Cart = () => {
                     <h5 className="Action">Remove all</h5>
                 </div>
 
-                {userItems ? userItems.map(x => <Item key={x._id} item={x} />) : <h2>Nothing in cart.</h2>}
+                {cartItems ? cartItems.map(x => <Item key={x._id} item={x} />) : <h2>Nothing in cart.</h2>}
 
                 <hr />
-                    <div className="checkout">
-                        <div className="total">
-                            <div>
-                                <div className="Subtotal">Sub-Total</div>
-                                <div className="items">{userItems ? userItems.length : '0'} items</div>
-                            </div>
-                            <div className="total-amount">$6.18</div>
+                <div className="checkout">
+                    <div className="total">
+                        <div>
+                            <div className="Subtotal">Sub-Total</div>
+                            <div className="items">{cartItems ? cartItems.length : '0'} items</div>
                         </div>
-                        <button class="button">Checkout</button></div>
+                        <div className="total-amount">$6.18</div>
+                    </div>
+                    <button class="button">Checkout</button></div>
             </div>
         </main>
     );
