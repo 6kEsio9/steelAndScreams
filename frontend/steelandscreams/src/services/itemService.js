@@ -23,8 +23,14 @@ exports.create = (data, authToken) => {
         .then(res => res.json())
 }
 
-exports.addToCart = (itemId, userId) => {
-    return fetch(`${url}/addToCart/${userId}/${itemId}`)
+exports.addToCart = (itemId, userId, authToken) => {
+    return fetch(`${url}/addToCart/${userId}/${itemId}`, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+            "X-Authorization": authToken
+        }
+    })
         .then(res => res.json())
         .catch(err => console.error(err));
 };

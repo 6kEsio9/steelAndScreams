@@ -13,21 +13,21 @@ export const Item = () => {
 
     const itemId = useParams('id').id;
 
-    const [item, setItems] = useItems(itemId);
+    const [items, setItems] = useItems();
+    
+    const item = items.filter(x => x._id == itemId)[0];
 
-    // console.log(item);
-
-    const addToCart = async (e) => {
+    const cartButton = async (e) => {
         e.preventDefault();
         if (auth) {
-           await itemService.addToCart(itemId, auth._id);
+            await itemService.addToCart(itemId, auth._id, auth.token);
         }
     }
 
     return (
         <div class="v1_3">
 
-            <div class="v1_7" onClick={addToCart}>
+            <div class="v1_7" onClick={cartButton}>
                 <span class="v1_12">
                     Add to cart
                 </span>
