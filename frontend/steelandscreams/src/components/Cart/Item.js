@@ -1,7 +1,5 @@
 export const Item = (props) => {
 
-    console.log(props.item)
-
     return (
         <div className="Cart-Items">
             <div className="image-box">

@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import useItems from "../../hooks/useItems";
 import useAuth from "../../hooks/useAuth";
 
+import * as itemService from '../../services/itemService';
+
 export const Item = () => {
 
     const { auth } = useAuth();
@@ -14,11 +16,12 @@ export const Item = () => {
     const [item, setItems] = useItems(itemId);
 
     // console.log(item);
-    console.log(auth);
 
-    const addToCart = (e) => {
+    const addToCart = async (e) => {
         e.preventDefault();
-        console.log(1);
+        if (auth) {
+           await itemService.addToCart(itemId, auth._id);
+        }
     }
 
     return (

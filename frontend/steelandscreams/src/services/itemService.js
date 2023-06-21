@@ -22,3 +22,9 @@ exports.create = (data, authToken) => {
     })
         .then(res => res.json())
 }
+
+exports.addToCart = (itemId, userId) => {
+    return fetch(`${url}/addToCart/${userId}/${itemId}`)
+        .then(res => res.json())
+        .catch(err => console.error(err));
+};
