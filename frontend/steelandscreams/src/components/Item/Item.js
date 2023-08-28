@@ -9,7 +9,7 @@ import * as itemService from '../../services/itemService';
 
 export const Item = () => {
 
-    const { auth } = useAuth();
+    const { auth, setAuth } = useAuth();
 
     const itemId = useParams('id').id;
 
@@ -20,7 +20,8 @@ export const Item = () => {
     const cartButton = async (e) => {
         e.preventDefault();
         if (auth) {
-            await itemService.addToCart(itemId, auth._id, auth.token);
+            itemService.addToCart(itemId, auth._id, auth.token)
+                .then(res => setAuth(res))
         }
     }
 

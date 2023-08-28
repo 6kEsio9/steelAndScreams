@@ -34,3 +34,15 @@ exports.addToCart = (itemId, userId, authToken) => {
         .then(res => res.json())
         .catch(err => console.error(err));
 };
+
+exports.removeFromCart = (itemId, userId, authToken) => {
+    return fetch(`${url}/removeFromCart/${userId}/${itemId}`, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json",
+            "X-Authorization": authToken
+        }
+    })
+        .then(res => res.json())
+        .catch(err => console.error(err));
+};

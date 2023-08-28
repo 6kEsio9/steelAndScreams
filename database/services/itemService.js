@@ -18,3 +18,13 @@ exports.addToCart = async (userId, itemId) => {
 
     return user.save();
 };
+
+exports.removeFromCart = async (userId, itemId) => {
+    const user = await User.findById(userId);
+    
+    if (user.cartItems.length > 0) {
+        user.cartItems.filter(x => x._id !== itemId)
+    }
+
+    return user.save();
+};

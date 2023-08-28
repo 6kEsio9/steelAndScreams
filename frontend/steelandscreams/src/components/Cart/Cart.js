@@ -3,7 +3,6 @@ import "./Cart.css";
 import { Item } from './Item';
 
 import useAuth from "../../hooks/useAuth";
-import useItems from "../../hooks/useItems";
 
 import itemService from '../../services/itemService';
 
@@ -17,6 +16,8 @@ export const Cart = () => {
 
     const [userItems, setUserItems] = useState([]);
 
+    const [price, setPrice] = useState(0);
+
     useEffect(() => {
         setUserItems(auth.cartItems);
     }, [userItems]);
@@ -24,12 +25,13 @@ export const Cart = () => {
     useEffect(() => {
         userItems.map(x => {
             itemService.getOne(x)
-                .then(res => setCartItems((state) => [...state, res]))
+                .then(res => {
+                    setCartItems((state) => [...state, res]);
+                    setPrice((state) => state += +res.price);
+                })
                 .catch(err => console.error(err));
         });
     }, [userItems]);
-
-    console.log(cartItems);
 
     return (
         <main>
@@ -39,7 +41,7 @@ export const Cart = () => {
                     <h5 className="Action">Remove all</h5>
                 </div>
 
-                {cartItems ? cartItems.map(x => <Item key={x._id} item={x} />) : <h2>Nothing in cart.</h2>}
+                {cartItems ? cartItems.map(x => <Item key={x._id} item={x} auth={auth} />) : <h2>Nothing in cart.</h2>}
 
                 <hr />
                 <div className="checkout">
@@ -48,7 +50,7 @@ export const Cart = () => {
                             <div className="Subtotal">Sub-Total</div>
                             <div className="items">{cartItems ? cartItems.length : '0'} items</div>
                         </div>
-                        <div className="total-amount">$6.18</div>
+                        <div className="total-amount">${price ? price : '0'}</div>
                     </div>
                     <button class="button">Checkout</button></div>
             </div>

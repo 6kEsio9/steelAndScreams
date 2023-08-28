@@ -71,3 +71,16 @@ exports.addToCart = async (req, res) => {
         res.send(error);
     }
 };
+
+exports.removeFromCart = async (req, res) => {
+    const itemId = req.params.itemId;
+    const userId = req.params.userId;
+    
+    try{
+        const itemRemoved = await itemService.removeFromCart(userId, itemId);
+        res.status(200).json(itemRemoved);
+    }catch(error){
+        res.status(400);
+        res.send(error);
+    }
+};

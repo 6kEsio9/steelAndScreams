@@ -1,4 +1,18 @@
+import * as itemService from '../../services/itemService';
+
+import useAuth from '../../hooks/useAuth';
+
 export const Item = (props) => {
+
+    const { auth, setAuth } = useAuth(); 
+
+    const removeButton = async (e) => {
+        e.preventDefault();
+        if(auth){
+            itemService.removeFromCart(props.item._id, auth._id, auth.token)
+                .then(res => console.log(res));
+        }
+    };
 
     return (
         <div className="Cart-Items">
@@ -16,7 +30,7 @@ export const Item = (props) => {
             </div>
             <div className="prices">
                 <div className="amount">${props.item.price}</div>
-                <div className="remove"><u>Remove</u></div>
+                <div onClick={removeButton} className="remove"><u>Remove</u></div>
             </div>
         </div>
     );
