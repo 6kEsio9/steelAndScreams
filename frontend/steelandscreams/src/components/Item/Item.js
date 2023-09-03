@@ -14,14 +14,14 @@ export const Item = () => {
     const itemId = useParams('id').id;
 
     const [items, setItems] = useItems();
-    
+
     const item = items.filter(x => x._id == itemId)[0];
 
     const cartButton = async (e) => {
         e.preventDefault();
         if (auth) {
             itemService.addToCart(itemId, auth._id, auth.token)
-                .then(res => setAuth(res))
+                .then(res => { res.token=auth.token; console.log(res); setAuth(res)})
         }
     }
 

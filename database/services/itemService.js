@@ -21,9 +21,16 @@ exports.addToCart = async (userId, itemId) => {
 
 exports.removeFromCart = async (userId, itemId) => {
     const user = await User.findById(userId);
-    
+
     if (user.cartItems.length > 0) {
-        user.cartItems.filter(x => x._id !== itemId)
+        let itemIndex = 0;
+        user.cartItems.map(x => {
+            if(JSON.stringify(x).localeCompare(JSON.stringify(itemId)) == 0){
+                user.cartItems.splice(itemIndex, 1);
+                return;
+            }
+            itemIndex++;
+        });
     }
 
     return user.save();

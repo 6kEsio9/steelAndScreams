@@ -25,7 +25,7 @@ exports.auth = async (req, res, next) => {
 
 exports.isAuth = (req, res, next) => {
     const user = req.headers['x-authorization'];
-
+    
     if (!user) {
         return res.redirect('/404');
     }

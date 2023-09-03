@@ -75,7 +75,7 @@ exports.addToCart = async (req, res) => {
 exports.removeFromCart = async (req, res) => {
     const itemId = req.params.itemId;
     const userId = req.params.userId;
-    
+
     try{
         const itemRemoved = await itemService.removeFromCart(userId, itemId);
         res.status(200).json(itemRemoved);

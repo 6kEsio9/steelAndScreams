@@ -4,13 +4,13 @@ import useAuth from '../../hooks/useAuth';
 
 export const Item = (props) => {
 
-    const { auth, setAuth } = useAuth(); 
+    const { auth, setAuth } = useAuth();
 
     const removeButton = async (e) => {
         e.preventDefault();
-        if(auth){
+        if (auth) {
             itemService.removeFromCart(props.item._id, auth._id, auth.token)
-                .then(res => console.log(res));
+                .then(res => {res.token=auth.token; console.log(res); setAuth(res)});
         }
     };
 
