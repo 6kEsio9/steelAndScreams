@@ -20,7 +20,7 @@ export const Cart = () => {
 
     useEffect(() => {
         setUserItems(auth.cartItems);
-    }, [userItems]);
+    }, [auth.cartItems]);
 
     useEffect(() => {
         userItems.map(x => {
