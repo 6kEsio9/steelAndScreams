@@ -13,17 +13,14 @@ export const Cart = () => {
     const { auth } = useAuth();
 
     const [cartItems, setCartItems] = useState([]);
-
-    const [userItems, setUserItems] = useState([]);
-
     const [price, setPrice] = useState(0);
 
-    useEffect(() => {
-        setUserItems(auth.cartItems);
-    }, [auth.cartItems]);
+    // useEffect(() => {
+    //     setUserItems(auth.cartItems);
+    // }, [auth.cartItems]);
 
     useEffect(() => {
-        userItems.map(x => {
+        auth.cartItems.map(x => {
             itemService.getOne(x)
                 .then(res => {
                     setCartItems((state) => [...state, res]);
@@ -31,7 +28,7 @@ export const Cart = () => {
                 })
                 .catch(err => console.error(err));
         });
-    }, [userItems]);
+    }, [auth.cartItems]);
 
     return (
         <main>

@@ -10,7 +10,11 @@ export const Item = (props) => {
         e.preventDefault();
         if (auth) {
             itemService.removeFromCart(props.item._id, auth._id, auth.token)
-                .then(res => {res.token=auth.token; console.log(res); setAuth(res)});
+                .then(res => {
+                    res.token = auth.token;
+                    console.log(res);
+                    setAuth(res);
+                });
         }
     };
 
@@ -25,7 +29,7 @@ export const Item = (props) => {
             </div>
             <div className="counter">
                 <div className="btn">+</div>
-                <div className="count">2</div>
+                <div className="count">1</div>
                 <div className="btn">-</div>
             </div>
             <div className="prices">
