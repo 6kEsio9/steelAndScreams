@@ -15,6 +15,7 @@ export const Item = (props) => {
                     res.token = auth.token;
                     console.log(res);
                     setAuth(res);
+                    props.setCartItems(res.cartItems);
                 });
         }
     };
