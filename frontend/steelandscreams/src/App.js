@@ -16,6 +16,7 @@ import { Item } from './components/Item/Item';
 import { Cart } from './components/Cart/Cart';
 
 function App() {
+
   return (
     <>
       <AuthProvider>

@@ -11,6 +11,7 @@ export const Item = (props) => {
         if (auth) {
             itemService.removeFromCart(props.item._id, auth._id, auth.token)
                 .then(res => {
+                    props.setCartItems(res.cartItems);
                     res.token = auth.token;
                     console.log(res);
                     setAuth(res);

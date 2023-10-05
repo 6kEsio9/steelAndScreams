@@ -13,7 +13,7 @@ export const Item = () => {
 
     const itemId = useParams('id').id;
 
-    const [items, setItems] = useItems();
+    const {items, setItems} = useItems();
 
     const item = items.filter(x => x._id == itemId)[0];
 
