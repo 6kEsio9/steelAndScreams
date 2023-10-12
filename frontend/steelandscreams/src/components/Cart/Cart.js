@@ -17,10 +17,6 @@ export const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
     const [price, setPrice] = useState(0);
 
-    // useEffect(() => {
-    //     setUserItems(auth.cartItems);
-    // }, [auth.cartItems]);
-
     useEffect(() => {
         auth.cartItems.map(x => {
             itemService.getOne(x)
@@ -40,7 +36,7 @@ export const Cart = () => {
                     <h5 className="Action">Remove all</h5>
                 </div>
 
-                {cartItems ? cartItems.map(x => <Item key={x._id} item={x} auth={auth} />) : <h2>Nothing in cart.</h2>}
+                {cartItems ? cartItems.map(x => <Item key={x._id} item={x} auth={auth} setCartItems={setCartItems} />) : <h2>Nothing in cart.</h2>}
 
                 <hr />
                 <div className="checkout">
